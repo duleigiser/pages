@@ -1,1 +1,133 @@
-"my page" 
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+      xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue.js_demo</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+   <!-- <div id="app">
+        <input v-model="newTodo" v-on:blur="addTodo">
+        <ul>
+            <li v-for="todo in todos">
+                <span>{{ todo.text }}</span>
+                <button v-on:click="removeTodo($index)">清除</button>
+            </li>
+        </ul>
+    </div>-->
+    <!--<div id="demo">
+        <p>message is:{{message? message:"no content"}}</p>
+        <input v-model="message">
+    </div>
+
+    <div id="app">
+        <input v-model="newTodo" v-on:blur="addTodo">
+        <ul>
+            <li v-for="cod in todos">
+                <span>{{cod.text}}</span>
+                <button v-on:click="removeTodo($index)">删除</button>
+            </li>
+        </ul>
+
+    </div>
+   <div id="example-1">
+       Hello {{ name }}!
+   </div>
+   <div id="example-2">
+       <p v-if="greeting">Hello!</p>
+   </div>
+    <div id="example-3">
+        <div class="static" v-bind:class="{ 'class-a': isA, 'class-b': isB }" ></div>
+
+    </div>
+   <span>Message is: {{ message }}</span>
+   <br>
+   <input type="text" v-model="message" placeholder="edit me">-->
+    <div id="example4">
+
+        <!--<input type="checkbox" id="jack" value="Jack1" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John1" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike1" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br>
+        <span>Checked names: {{ checkedNames | json }}</span>-->
+        <select v-model="selected">
+            <option selected>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+    </div>
+</body>
+<script>
+    new Vue({
+        el:"#example4",
+        data:{
+            picked:[]
+        }
+    })
+   /* new Vue({
+        el:"#example-3",
+        data:{
+            isA: true,
+            isB: false
+        }
+    })
+    var exampleData = {
+        name: 'Vue.js'
+    }
+    // 创建一个 Vue 实例或 "ViewModel"
+    // 它连接 View 与 Model
+    var exampleVM = new Vue({
+        el: '#example-1',
+        data: exampleData
+    })
+    new Vue({
+        el:"#demo",
+        data:{
+            message:"hhhh"
+        }
+        
+    })
+    var exampleVM2 = new Vue({
+        el: '#example-2',
+        data: {
+            greeting: true
+        }
+    })
+    
+    new Vue({
+        el: "#app",
+        data:{
+            newTodo:"",
+            todos:[{
+                text:"add new todo"
+            }]
+        },
+        methods:{
+            addTodo:function () {
+                var text = this.newTodo.trim();
+                if(text){
+                    this.todos.push({
+                        text:text
+                    })
+                }
+                this.newTodo="" 
+            },
+            removeTodo:function(index){
+                this.todos.splice(index,1)
+            }
+        }
+    })*/
+
+
+
+   
+</script>
+
+</html>
