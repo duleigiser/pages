@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slot</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+
+    <my-component>
+        <p>This is some original content</p>
+        <p>This is some more original content</p>
+    </my-component>
+    <div id="example">
+        <h1>This is my component!</h1>
+        <slot></slot>
+    </div>
+
+
+    <script>
+         Vue.component("my-component",{
+             template: '#example'
+         });
+         new Vue({
+             el: 'body'
+         });
+    </script>
+
+</body>
+</html>

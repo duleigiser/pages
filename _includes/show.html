@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>show</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span v-show="!message">you must enter message!</span>
+            <textarea name="" id="" cols="30" rows="10" v-model="message"></textarea>
+        <button v-show="message">submit</button>
+        <pre>{{$data | json}}</pre>
+    </div>
+
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{message:""}
+    })
+</script>
+</html>

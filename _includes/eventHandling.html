@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event handling</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+        <button @click="count+=1"> like {{count}}</button>
+        <button @click="count+=1"> dislike {{count}}</button>
+</div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            count:0
+        }
+
+
+    })
+</script>
+</html>

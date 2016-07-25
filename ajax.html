@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax 测试</title>
+    <script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div id="demo">
+adfa 
+    </div>
+    <script type="text/javascript">
+        $("#demo").click(function(){
+            window.open("www.baidu.com" , "_blank" ) ;
+        })
+        if (!window.location.origin) {
+            window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+        }
+        var ctx = window.location.origin;//htttp://localhost:8080
+        //var url = ctx+"/"
+        /* */
+    </script>
+</body>
+</html>

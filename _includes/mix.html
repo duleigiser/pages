@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mixin</title>
+    <script src="https://npmcdn.com/vue@1.0.26/dist/vue.min.js"></script>
+</head>
+<body>
+<script>
+    /*var mixin = {
+        created:function () {
+            console.log("mixin called")
+        }
+    }
+    new Vue({
+        mixins:[mixin],
+        created:function () {
+            console.log('component hook called')
+        }
+    })*/
+    var mixin = {
+        created:function () {
+            this.hello()
+        },
+        methods:{
+            hello:function () {
+                console.log("hello from mixin!")
+            }
+        }
+
+    }
+    var Comp = Vue.extend({mixins:[mixin]})
+    var com = new Comp();
+</script>
+</body>
+</html>

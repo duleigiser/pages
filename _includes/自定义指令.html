@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="demo" v-demo a="hi" b="c"></div>
+</body>
+<script>
+    Vue.directive('demo', {
+        params:["a","b"],
+        bind: function () {
+
+            console.log(this.params.b)
+        },
+        update: function (value) {
+            console.log(value)
+        }
+    })
+    var demo = new Vue({
+        el: '#demo',
+        data: {
+            msg: 'hello!'
+        }
+    })
+</script>
+</html>

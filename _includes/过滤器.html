@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="exp">
+    <input type="text" v-model="msg |current" />
+    <span>{{ msg | current}}</span>
+</div>
+</body>
+<script>
+    Vue.filter('current', {
+        // model -> view
+        // 在更新 `<input>` 元素之前格式化值
+        read: function(val) {
+            console.log(val)
+            if(val){
+                return '$'+val.toFixed(2)
+            }
+
+        },
+        // view -> model
+        // 在写回数据之前格式化值
+        write: function(val, oldVal) {
+            var number = +val.replace(/[^\d.]/g, '')
+            return isNaN(number) ? 0 : parseFloat(number.toFixed(2))
+        }
+    })
+    new Vue(
+            {
+                el:"#exp",
+                data:{
+                    msg:12.33
+                }
+
+            }
+    )
+</script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+    <template id="child-template">
+        <input type="text" v-model="msg"  placeholder="{{msg1}}">
+        <button @click="notify">Dispatch Event</button>
+    </template>
+    <div id="event-example">
+        <p>Message: {{ messages | json}}</p>
+        <child @child-msg="handleIt"></child>
+    </div>
+</body>
+
+<script>
+    Vue.component("child", {
+        template:"#child-template",
+        data: function (){
+            return { msg : "",msg1:"请输入"}
+        },
+        methods:{
+            notify:function () {
+                if(this.msg.trim()){
+                    this.$dispatch("child-msg",this.msg);
+                    this.msg='';
+                    this.msg1 = "请输入。。。。"
+                }
+            }
+        }
+    });
+    var parent = new Vue({
+        el:"#event-example",
+        data:{
+            messages:[]
+        },
+        methods:{
+            handleIt:function (msg) {
+                this.messages.push(msg)
+            }
+        }
+        //component:"child"
+
+
+    });
+    /*var child1 = Vue.component('my-component', {
+        template: '<div>{{msg}}</div>',
+        data:function () {
+            return {msg:"nicai"}
+        }
+    });
+    var par = new Vue({
+        el:"#parent"
+    });
+    */
+
+    /*Vue.component("us",{
+        template:"user-profile",
+        data: function (){
+            return { msg : "",msg1:"请输入"}
+        }
+
+    })*/
+   // var child = par.$refs.profile;
+
+    //console.log(child);
+   //子组件，将消息发出去
+
+
+    /*// 局部注册也可以这么做
+    var Parent = Vue.extend({
+        components: {
+            'my-component': {
+                template: '<div>A custom component!</div>'
+            }
+        }
+    });*/
+    // 创建根实例
+
+
+
+
+
+
+
+</script>
+</html>

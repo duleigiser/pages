@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>computer prop</title>
+    <script src="http://cdn.jsdelivr.net/vue/1.0.24/vue.min.js"></script>
+</head>
+<body>
+    <h1>skill : {{skill}}</h1>
+    <input v-model="points">
+
+
+    <h1>{{fullName}}</h1>
+    <input type="TEXT" v-model="first" />
+    <input type="TEXT" v-model="last" />
+</body>
+<script>
+    new Vue({
+        el:"body",
+        data:{
+            points:"",
+            first:"du",
+            last:"lei",
+            fullName:""
+        },
+        computed:{
+            skill:function () {
+                if(this.points<100){
+                    return "beginner"
+                }
+                return "advanced";
+            },
+            fullName:function () {
+                return this.first +""+this.last
+            }
+        }
+    })
+
+</script>
+</html>

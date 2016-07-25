@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml"
       xmlns:v-on="http://www.w3.org/1999/xhtml">
@@ -6,6 +7,37 @@
     <meta charset="UTF-8">
     <title>vue.js_demo</title>
     <script src="vue.js"></script>
+    <style>
+        .bounce-transition {
+             display: inline-block; /* 否则 scale 动画不起作用 */ 
+             } 
+        .bounce-enter { animation: bounce-in .5s; } 
+        .bounce-leave { animation: bounce-out .5s; } 
+        @keyframes bounce-in { 
+            0% { transform: scale(0); } 
+            50% { transform: scale(1.5); }
+            100% { transform:scale(1); }
+        } 
+        @keyframes bounce-out { 
+            0% { transform: scale(1); } 
+            50% { transform: scale(1.5); } 
+            100% { transform: scale(0); } 
+        }
+        ul {
+            padding-left: 0;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        .staggered-transition {
+            transition: all .5s ease;
+            overflow: hidden;
+            margin: 0;
+            height: 20px;
+        }
+        .staggered-enter, .staggered-leave {
+            opacity: 0;
+            height: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,12 +50,12 @@
             </li>
         </ul>
     </div>-->
-    <!--<div id="demo">
+   <!-- <div id="demo">
         <p>message is:{{message? message:"no content"}}</p>
-        <input v-model="message">
-    </div>
+        <input v-model="message" lazy>
+    </div>-->
 
-    <div id="app">
+    <!--<div id="app">
         <input v-model="newTodo" v-on:blur="addTodo">
         <ul>
             <li v-for="cod in todos">
@@ -56,21 +88,69 @@
         <label for="mike">Mike</label>
         <br>
         <span>Checked names: {{ checkedNames | json }}</span>-->
-        <select v-model="selected">
+       <!-- <select v-model="selected">
             <option selected>A</option>
             <option>B</option>
             <option>C</option>
         </select>
-        <span>Selected: {{ selected }}</span>
+        <span>Selected: {{ selected }}</span>-->
+        <!-- 当选中时，`picked` 为字符串 "a" -->
+
+        <span v-show="show" transition="bounce">Look at me!</span>
+        <br/>
+            <button @click="dis()">toggle</button>
     </div>
+
+    <div id="example5">
+        <input v-model="query">
+        <ul>
+            <li v-for="item in list | filterBy query"   transition="staggered" stagger="100">{{ item.msg}}</li>
+        </ul>
+        <ul>
+            <li v-for></li>
+        </ul>
+    </div>
+
 </body>
 <script>
     new Vue({
-        el:"#example4",
+        el: "#example5",
         data:{
-            picked:[]
+            query:"",
+            list:[
+                    { msg: 'Bruce Lee' },
+                    { msg: 'Jackie Chan' },
+                    { msg: 'Chuck Norris' },
+                    { msg: 'Jet Li' },
+                    { msg: 'Kung Fury' }
+                ]
         }
     })
+
+     new Vue({
+        el:"#example4",
+        data:{
+            
+         show: false
+        },
+        methods:{
+            dis:function(){
+                if(this.show){
+                    this.show = false;
+                }else{
+                    this.show = true;
+                }
+               
+            }        
+        }
+    })
+  /*new Vue({
+        el:"#demo",
+        data:{
+            message:"hhhh"
+        }
+        
+    })*/
    /* new Vue({
         el:"#example-3",
         data:{
@@ -87,13 +167,7 @@
         el: '#example-1',
         data: exampleData
     })
-    new Vue({
-        el:"#demo",
-        data:{
-            message:"hhhh"
-        }
-        
-    })
+    
     var exampleVM2 = new Vue({
         el: '#example-2',
         data: {
