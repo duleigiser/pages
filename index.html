@@ -8,6 +8,10 @@
     <title>vue.js_demo</title>
     <script src="vue.js"></script>
     <style>
+          #wrap{
+            width:1280px;
+            margin:0 auto;
+          }
         .bounce-transition {
              display: inline-block; /* 否则 scale 动画不起作用 */ 
              } 
@@ -41,6 +45,7 @@
 </head>
 
 <body>
+      <div id="wrap">
    <!-- <div id="app">
         <input v-model="newTodo" v-on:blur="addTodo">
         <ul>
@@ -110,7 +115,7 @@
             <li v-for></li>
         </ul>
     </div>
-
+</div>
 </body>
 <script>
     new Vue({
